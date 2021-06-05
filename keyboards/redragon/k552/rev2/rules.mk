@@ -1,6 +1,6 @@
 # project specific files
 SRC = matrix.c
-SRC += led_matrix.c
+SRC += ../led_matrix.c
 SRC += config_led.c
 
 ## chip/board settings

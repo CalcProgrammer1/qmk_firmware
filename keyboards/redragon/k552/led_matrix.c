@@ -41,15 +41,19 @@
 */
 
 LED_TYPE led_state[DRIVER_LED_TOTAL];
+LED_TYPE new_led_state[DRIVER_LED_TOTAL];
 
 void init(void) {}
 
-static void flush(void) {}
+static void flush(void) {
+    for (int i=0; i<DRIVER_LED_TOTAL; i++)
+        led_state[i] = new_led_state[i];
+}
 
 void set_color(int index, uint8_t r, uint8_t g, uint8_t b) {
-    led_state[index].r = r;
-    led_state[index].g = g;
-    led_state[index].b = b;
+    new_led_state[index].r = r;
+    new_led_state[index].g = g;
+    new_led_state[index].b = b;
 }
 
 static void set_color_all(uint8_t r, uint8_t g, uint8_t b) {
@@ -66,5 +70,5 @@ const rgb_matrix_driver_t rgb_matrix_driver = {
 
 void led_set(uint8_t usb_led) {
     writePin(LED_CAPS_LOCK_PIN, !IS_LED_ON(usb_led, USB_LED_CAPS_LOCK));
-	writePin(LED_SCROLL_LOCK_PIN, !IS_LED_ON(usb_led, USB_LED_SCROLL_LOCK));
+    writePin(LED_SCROLL_LOCK_PIN, !IS_LED_ON(usb_led, USB_LED_SCROLL_LOCK));
 }
