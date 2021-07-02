@@ -76,7 +76,11 @@ const rgb_matrix_driver_t rgb_matrix_driver = {
     .set_color_all = set_color_all,
 };
 
-void led_set(uint8_t usb_led) {
-    writePin(LED_CAPS_LOCK_PIN, !IS_LED_ON(usb_led, USB_LED_CAPS_LOCK));
-    writePin(LED_SCROLL_LOCK_PIN, !IS_LED_ON(usb_led, USB_LED_SCROLL_LOCK));
+bool led_update_kb(led_t led_state) {
+    bool res = led_update_user(led_state);
+    if(res) {
+        writePin(LED_CAPS_LOCK_PIN, !led_state.caps_lock);
+        writePin(LED_SCROLL_LOCK_PIN, !led_state.scroll_lock);
+    }
+    return res;
 }
