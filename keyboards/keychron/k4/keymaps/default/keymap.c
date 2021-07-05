@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               },
 
 /*				+--------------------------------------------------------------------------+-------------------+
-				|     |SLCK|PAUS|    |BRLR|BRIN|MPRV| PLY|MNXT|MUTE|VLDN|VLUP|    |   |PSCR|    |    | SLP| TOG|
+				| RST |SLCK|PAUS|    |BRLR|BRIN|MPRV| PLY|MNXT|MUTE|VLDN|VLUP|    |   |PSCR|    |    | SLP| TOG|
 				+--------------------------------------------------------------------------+----|----|----|----+				
  				|     |    |    |    |    |    |    |    |    |    |    |    |    |        |    |    |    | HUE|
  				+--------------------------------------------------------------------------+----|----|----|----+
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  				+--------------------------------------------------------------------------+-------------------+
 */ 				
     /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
-    [_FL] =   { {   _______,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC__MUTE, KC__VOLDOWN, KC__VOLUP,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
+    [_FL] =   { {   RESET,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC__MUTE, KC__VOLDOWN, KC__VOLUP,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_HUI },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_SPI },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
@@ -97,8 +97,8 @@ void dip_switch_update_user(uint8_t index, bool active){
 }
 void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
-  debug_enable=true;
-  debug_matrix=true;
+  // debug_enable=true;
+  // debug_matrix=true;
   //debug_keyboard=true;
   //debug_mouse=true;
 }
