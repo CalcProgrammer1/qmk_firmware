@@ -154,6 +154,9 @@ bool process_magic(uint16_t keycode, keyrecord_t *record) {
                         }
 #endif
                         break;
+                    case MAGIC_TOGGLE_GUI:
+                        keymap_config.no_gui = !keymap_config.no_gui;
+                        break;
                     case MAGIC_TOGGLE_NKRO:
                         clear_keyboard();  // clear first buffer to prevent stuck keys
                         keymap_config.nkro = !keymap_config.nkro;
